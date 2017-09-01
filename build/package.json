@@ -2,7 +2,7 @@
   "name": "build",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://haitaowang555.github.io/React/build",
+  "homepage": "https://haitaowang555.github.io/React/build/public",
   "dependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
