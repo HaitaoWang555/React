@@ -17,9 +17,10 @@ class App extends Component {
     }
   render() { 
     let todos = this.state.todoList.map((item,index)=>{
-      return ( // 为什么这里要加个括号？这是动手题3 🐸
+      return (
         <li key={index}>
-          <TodoItem todo={item} onToggle={this.toggle.bind(this)}/>
+          <TodoItem todo={item} onToggle={this.toggle.bind(this)}
+            onDelete={this.delete.bind(this)}/>
         </li>
       )
      })
@@ -58,6 +59,10 @@ class App extends Component {
       newTodo: '',
       todoList: this.state.todoList
     })
+  }
+  delete(event, todo){
+    todo.deleted = true
+    this.setState(this.state) 
   }
 }
 
