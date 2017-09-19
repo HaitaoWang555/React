@@ -7,6 +7,7 @@ export default class UserDialog extends Component{
     this.state = {
       selected: 'signUp',
       formData: {
+      	email: '',
         username: '',
         password: '',
       }
@@ -19,7 +20,7 @@ export default class UserDialog extends Component{
   }
   signUp(e){
     e.preventDefault()
-    let {username, password} = this.state.formData
+    let {email, username, password} = this.state.formData
     let success = (user)=>{
       this.props.onSignUp.call(null, user)
     }
@@ -33,7 +34,7 @@ export default class UserDialog extends Component{
           break
       }
     }
-    signUp(username, password, success, error)
+    signUp(email, username, password, success, error)
   }
    signIn(e){
     e.preventDefault()
@@ -62,6 +63,11 @@ export default class UserDialog extends Component{
 	  let signUpForm = (
 		  <form className="signUp" onSubmit={this.signUp.bind(this)}> {/* 注册*/}
 		    <div className="row">
+		    	<label>邮箱</label> 
+          <input type="text" value={this.state.formData.email}
+            onChange={this.changeFormData.bind(this, 'email')}/>
+        </div>
+        <div className="row">
 		      <label>用户名</label> 
 		        <input type="text" value={this.state.formData.username}
             onChange={this.changeFormData.bind(this, 'username')}/>
@@ -90,6 +96,7 @@ export default class UserDialog extends Component{
         </div>
         <div className="row actions">
           <button type="submit">登录</button>
+          <a href="javascript:;">忘记密码了？</a>
         </div>
       </form>
     )  	
@@ -106,7 +113,8 @@ export default class UserDialog extends Component{
               <input type="radio" value="signIn" 
                 checked={this.state.selected === 'signIn'}
                 onChange={this.switch.bind(this)}
-              /> 登录</label>
+              /> 登录
+            </label>
           </nav>
           <div className="panes">
             {this.state.selected === 'signUp' ? signUpForm : null}
