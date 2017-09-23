@@ -1,17 +1,52 @@
 .App {
   color: #333;
-  border: 1px solid #aaa;
   border-radius: 4px;
   background: white;
   margin: 2em;
-  padding: 0 1em;
-  min-height: 20em;
+  padding: 1em;
+  min-height: 25em;
   min-width: 32em;
-  box-shadow: 0 0 1em hsla(0,0%,0%,0.15);
+  max-width: 35em;
+  position: relative;
 }
-.App > .todoList> li:nth-child(odd){
-  background: #eee;
+.App:before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  overflow: hidden;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
 }
-.App > .todoList> li:nth-child(even){
-  background: transparent;
+.App h1{
+  font-size: 4em;
+  font-weight: 100;
+  text-align: center;
+  color: rgba(175, 47, 47, 0.15);
+  line-height: 1.4em;
+}
+.App > button{
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  padding: 0.5em;
+  color: white;
+  background-color: rgba(175, 47, 47, 0.15);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.App > .todoList {
+  padding-bottom: 1em;
+}
+.App > .todoList> li{
+  border-bottom: 1px solid #ddd;
+}
+.App > .todoList p.through{
+  color: #d9d9d9;
+  text-decoration: line-through;
+}
+.App > .todoList> li:last-child{
+  border-bottom: none;
 }

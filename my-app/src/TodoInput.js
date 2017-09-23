@@ -14,6 +14,7 @@ function changeTitle (props, e) {
 
 export default function (props) {
   return <input type="text" value={props.content}
+    placeholder="写点计划吧"
     className="TodoInput"
     onChange={changeTitle.bind(null, props)}
     onKeyPress={submit.bind(null, props)}/>

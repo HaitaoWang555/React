@@ -3,13 +3,13 @@ export default function (props) {
   return (
     <form className="signIn" onSubmit={props.onSubmit}> {/* 登录*/}
       <div className="row">
-        <label>用户名</label>
-        <input type="text" value={props.formData.username}
+        <input type="text" placeholder="账号(试用'1')"
+          value={props.formData.username}
           onChange={props.onChange.bind(null, 'username')}/>
       </div>
       <div className="row">
-        <label>密码</label>
-        <input type="password" value={props.formData.password}
+        <input type="password" placeholder="请输入密码(试用'1')"
+        value={props.formData.password}
           onChange={props.onChange.bind(null, 'password')}/>
       </div>
       <div className="row actions">

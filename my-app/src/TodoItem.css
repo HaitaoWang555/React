@@ -1,9 +1,20 @@
 .TodoItem{
-   padding: .5em;
+  padding: 1em;
   display: flex;
   align-items: center;
 }
-.TodoItem>.title{
+.TodoItem>p{
   flex-grow: 1;
+  width: 80%;
   padding: 0 .5em;
+  font-size: 24px;
+  white-space: normal;
+  word-break: break-all;
+}
+.TodoItem button{
+  color: white;
+  background-color: #cc9a9a;
+  border: none;
+  padding: .3em;
+  border-radius: 3px;
 }

@@ -8,6 +8,11 @@ import UserDialog from './UserDialog'
 import {getCurrentUser, signOut,TodoModel} from './leanCloud'
 
 class App extends Component {
+  onSignUpOrSignIn(user){  
+    let stateCopy = JSON.parse(JSON.stringify(this.state)) 
+    stateCopy.user = user
+    this.setState(stateCopy)
+  }
   constructor(props){
     super(props)
     this.state = {
@@ -38,8 +43,8 @@ class App extends Component {
     return (
       <div className="App">
         <h1>{this.state.user.username||'我'}的待办
-          {this.state.user.id ? <button onClick={this.signOut.bind(this)}>登出</button> : null}
         </h1>
+        {this.state.user.id ? <button onClick={this.signOut.bind(this)}>退出</button> : null}
         <div className="inputWrapper">
           <TodoInput content={this.state.newTodo} 
           onChange={this.changeTitle.bind(this)}
@@ -62,11 +67,7 @@ class App extends Component {
     stateCopy.user = {}
     this.setState(stateCopy)
   }
-  onSignUpOrSignIn(user){  
-    let stateCopy = JSON.parse(JSON.stringify(this.state)) 
-    stateCopy.user = user
-    this.setState(stateCopy)
-  }
+
   componentDidUpdate(){
   }
   toggle(e, todo){

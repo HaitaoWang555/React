@@ -1,7 +1,7 @@
 .UserDialog-Wrapper{ 
-  /*全屏*/      position: fixed; top: 0; left: 0; bottom: 0; right: 0; 
+  /*全屏*/      position: absolute; top: 0; left: 0; bottom: 0; right: 0; 
   /*内容居中*/  display: flex; justify-content: center; align-items: center;
-  background: hsla(0,0%,0%,0.40);
+  background: #ddd;min-height: 90vh;
 }
 .UserDialog{
   border: 1px solid;
@@ -11,15 +11,21 @@
   border: 1px solid #aaa;
   box-shadow: 0 0 1em hsla(0,0%,0%,0.35);
 }
-.UserDialog .signInOrSignUp > nav:first-child{ padding: 1em; margin-left: -2em;}
-.UserDialog .signInOrSignUp > nav:first-child label{ margin-left: 2em; cursor: pointer;}
-.UserDialog .signInOrSignUp > .panes { padding: 0 1em 1em; }
+.UserDialog .signInOrSignUp > nav{display: flex;justify-content: space-around;padding: 1em;background-color: #f9fbfe;}
+.UserDialog .signInOrSignUp > nav input{display: none;}
+.UserDialog .signInOrSignUp > nav label{cursor: pointer;color: #999;}
+.UserDialog .signInOrSignUp > nav label:hover{color:#333;}
+.UserDialog .signInOrSignUp > nav label.checked {color:#333;}
+.UserDialog .signInOrSignUp > .panes {padding: 2em 1em ;}
 
-+.UserDialog .forgotPassword > h3 { padding: 1em; }
- +.UserDialog .forgotPassword > form { padding: 0 1em 1em; }
+.UserDialog .forgotPassword > h3 { padding: 1em; font-weight: normal;text-align: center;}
+.UserDialog .forgotPassword > form { padding: 0 1em 1em; }
 
 .UserDialog form>.row{ display: flex; padding: .3em 0; }
-.UserDialog form>.row>label:first-child{ width: 4em; }
-.UserDialog form>.row.actions{ padding-left: 4em; display: flex; align-items: center;}
-.UserDialog form>.row.actions button{ margin-right: .5em; }
-.UserDialog button{font: inherit; padding: .2em;}
+.UserDialog form>.row input{padding: .5em .3em;border:1px solid #ddd; border-radius: 3px;font-size: .8em;width:80%;margin:0 auto;}
+
+
+.UserDialog form>.row.actions{ display: flex;flex-direction: column;align-items: center; }
+.UserDialog form>.row.actions button{ width:80%;cursor: pointer;}
+.UserDialog form>.row.actions a {padding-top: 2em;width:80%;text-align: right;}
+.UserDialog button{font: inherit; padding: .5em;color: white;background-color: #5a98de;border:none;border-radius: 3px;}    
